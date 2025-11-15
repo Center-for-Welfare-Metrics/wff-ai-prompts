@@ -21,40 +21,41 @@ This repo does not contain runnable code or API keys—only text prompts and doc
 
 ⸻
 
-🗂 Folder Structure
+📁 Folder Structure
 
-Each WFF project has its own folder containing all prompts used by that tool.
+Each WFF project has its own folder containing the prompts used by that tool.
 
+```text
 wff-ai-prompts/
-│
 ├── SCANNER_APP/
-│     analyze_user_material.md
-│     confirm_refine_items.md
-│     analyze_product.md
-│     analyze_focused_item.md
-│     suggest_ethical_swap.md
-│     fragments.md
-│     README.md
+│   ├── analyze_user_material.md
+│   ├── confirm_refine_items.md
+│   ├── analyze_product.md
+│   ├── analyze_focused_item.md
+│   ├── suggest_ethical_swap.md
+│   ├── fragments.md
+│   └── README.md
 │
 ├── WELFAREDATA/
-│     README.md
-│     (future prompts)
+│   └── README.md   (future prompts)
 │
 ├── HEDONIC_TRACK/
-│     README.md
-│     (future prompts)
+│   └── README.md   (future prompts)
 │
 ├── PAIN_ATLAS/
-│     README.md
-│     (future prompts)
+│   └── README.md   (future prompts)
 │
-└── README.md   ← (this file)
-
+└── README.md   (this file)
 This structure keeps things simple, flat, and fast to navigate, especially for non-technical collaborators.
+```
+
+
 
 ⸻
 
 🔍 How This Repo Relates to the Production System
+
+
 	•	The prompts here are the canonical human-editable versions.
 	•	In production (e.g., inside Lovable or Supabase Edge Functions), prompts are also embedded in code as runtime strings (due to serverless environment constraints).
 	•	After editing a prompt here, maintainers manually sync it with the production copy and bump the prompt version.
