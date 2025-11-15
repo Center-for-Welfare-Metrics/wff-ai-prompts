@@ -54,8 +54,6 @@ This structure keeps things simple, flat, and fast to navigate, especially for n
 ⸻
 
 🔍 How This Repo Relates to the Production System
-
-
 	•	The prompts here are the canonical human-editable versions.
 	•	In production (e.g., inside Lovable or Supabase Edge Functions), prompts are also embedded in code as runtime strings (due to serverless environment constraints).
 	•	After editing a prompt here, maintainers manually sync it with the production copy and bump the prompt version.
