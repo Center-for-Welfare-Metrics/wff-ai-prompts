@@ -1,34 +1,36 @@
-# 🌱 Welfare Footprint Framework — AI Prompts Repository  
+# 🌱 Welfare Footprint Framework — AI Prompts Repository
 
+This repository hosts the public, human-readable versions of all AI prompts used across the software ecosystem of the Welfare Footprint Framework (WFF). These are the **canonical source-of-truth** prompts: production systems read these files directly, so no separate “synced copies” exist.
 
-This repository hosts the public, human-readable versions of all AI prompts used across the software ecosystem of the Welfare Footprint Framework (WFF).
-These prompts power tools such as the Scanner App, WelfareData, Hedonic-Track, Pain-Atlas, and future WFF applications.
+The goal is to make our AI reasoning fully transparent, reviewable, and collaboratively improvable.
 
-The goal of this repository is to make our AI logic transparent, reviewable, and collaboratively improvable by the broader community.
+---
 
-⸻
+## 🌐 Purpose
 
-🌐 Purpose
+The prompts stored here define the reasoning rules, domain logic, constraints, and output formats used by LLMs in WFF applications, such as the Scanner App, WelfareData, Hedonic-Track, and Pain-Atlas.
 
-AI prompts in the WFF ecosystem encode the reasoning rules, ethical boundaries, domain knowledge, and structured outputs used by LLMs inside our tools.
+Keeping them public enables:
 
-Keeping them public allows:
-	•	Scientific transparency
-	•	Community review and critique
-	•	Easier collaboration with researchers and developers
-	•	Versioned, documented evolution of WFF methods
-	•	A reference source for syncing with production code
+- Scientific transparency  
+- Expert review & critique  
+- Collaboration with developers and researchers  
+- Clear versioning and documented evolution of our AI logic  
+- A stable reference point for all WFF applications  
 
-This repo contains no executable code and no API keys — only text prompts and documentation.
+This repo contains **only** plain text prompts and documentation — no code, no secrets, no API keys.
 
-⸻
+---
 
-📁 Folder Structure
+## 📁 Folder Structure
 
-Each WFF project has its own folder containing the prompts used by that tool.
+Each WFF application has its own folder, following the naming pattern:
 
-To keep everything clear and easy to navigate, all project folders follow the naming convention AI_<PROJECT_NAME>.
-This helps both technical and non-technical collaborators instantly recognize the domain of each set of prompts.
+```
+AI_<APPLICATION_NAME>
+```
+
+Example structure:
 
 ```
 wff-ai-prompts/
@@ -50,58 +52,52 @@ wff-ai-prompts/
 ├── AI_PAIN_ATLAS/
 │   └── README.md
 │
-└── README.md   (this file)
+└── README.md
 ```
 
+This structure keeps everything simple, flat, and easy to navigate — especially for non-technical collaborators.
 
-This simple, flat structure ensures fast navigation — especially for collaborators without technical experience.
+---
 
-⸻
+## 🔍 How This Repo Integrates With Production
 
-📘 Mandatory README in Each Project Folder
+- These files are **the single source of truth** for all prompts.  
+- WFF applications (Scanner App, etc.) load these `.md` files directly.  
+- There is **no secondary prompt copy** inside Supabase or Lovable.  
+- Updating a prompt here updates the logic used in production.
 
-Each project folder must include its own README.md, containing:
-	1.	A clear explanation of what the prompts in that folder do
-	2.	Hyperlinks to each file in that folder, so a scientist or external collaborator can access everything from a single document
-	3.	Guidelines or context for how to evaluate or propose edits to those prompts
+---
 
-This allows you to share just one link with a collaborator, and they immediately see:
-	•	What the prompts do
-	•	What they influence
-	•	Where each prompt is located
-	•	How they can contribute
+## 📝 Folder-Level README Requirement
 
-It dramatically reduces friction and confusion in scientific collaboration.
+Each application folder (e.g., `AI_SCANNER_APP/`) must include its own `README.md` containing:
 
-⸻
+- A description of what the prompts in that folder do  
+- Hyperlinks to each prompt file  
+- Any notes about intended usage or versioning  
 
-🔍 How This Repo Relates to the Production System
-	•	The prompts here are the canonical human-editable versions
-	•	In production (Lovable / Supabase Edge Functions), prompts are embedded directly in code due to serverless file-system restrictions
-	•	After editing a prompt here, maintainers manually sync it into production and bump the prompt version
+This allows you to share a single folder-level README with scientists or developers and give them clean, direct access to the relevant prompts.
 
-Thus, this repo serves as the source of truth for editing, even though the deployed system uses embedded versions.
+---
 
-⸻
+## 💬 How to Contribute
 
-💬 How to Contribute
-
-Contributions are welcome from scientists, developers, designers, and interested members of the public.
+Contributions are welcome from scientists, developers, and the general public.
 
 Ways to contribute:
-	•	Propose improvements via GitHub Issues
-	•	Suggest edits for clarity, structure, evidence, or ethical consistency
-	•	Submit Pull Requests (no coding experience needed — prompts are plain text)
 
-⸻
+- Open GitHub Issues to propose improvements or corrections  
+- Comment on scientific accuracy, clarity, structure, ethics boundaries, etc.  
+- Submit Pull Requests with suggested edits  
 
-🔐 Security Note
+No coding experience is required — prompts are plain text.
 
-This repository contains:
-	•	No API keys
-	•	No database credentials
-	•	No backend logic or private infrastructure details
+---
 
-It is fully safe to be publicly accessible.
+## 🔐 Security Note
 
-⸻
+This repository contains **no secrets**, **no API keys**, and **no runnable backend code**.  
+It is fully safe to be public.  
+All sensitive credentials remain stored privately inside WFF infrastructure.
+
+---
