@@ -1,200 +1,86 @@
 # 🌱 Welfare Footprint Framework — AI Prompts Repository  
-### `wff-ai-prompts`
 
-This repository contains the **complete collection of AI prompts** used across all software tools in the **Welfare Footprint Framework (WFF)**.  
-It is publicly accessible to support:
+This repository hosts the public, human-readable versions of all AI prompts used across the software ecosystem of the Welfare Footprint Framework (WFF).
+These prompts power tools such as the Scanner App, WelfareData, Hedonic-Track, Pain-Atlas, and future WFF applications.
 
-- scientific transparency  
-- public and peer review  
-- collaborative refinement  
-- error reporting and prompt debugging  
-- reproducible workflows  
+The goal of this repository is to make our AI logic transparent, reviewable, and collaboratively improvable by the broader community.
 
-This repo contains **only prompt files** (text templates, fragments, glossaries) — *no code and no system secrets*.
+⸻
 
----
+🌐 Purpose
 
-## 🔍 Why this repository exists
+AI prompts in the WFF ecosystem encode the reasoning rules, ethical boundaries, domain knowledge, and structured outputs used by LLMs inside our tools.
+Keeping them public allows:
+	•	Scientific transparency
+	•	Community review & critique
+	•	Ease of collaboration with researchers and developers
+	•	Versioned, documented evolution of the AI logic
+	•	A reference source for syncing with production code
 
-As the WFF ecosystem expands, multiple tools rely on increasingly sophisticated AI prompts:
+This repo does not contain runnable code or API keys—only text prompts and documentation.
 
-- 🥚 **Food Welfare Scanner App**  
-- 📊 **WelfareData.org**  
-- 🧠 **Hedonic-Track GPT**  
-- 🐝 **Pain-Atlas**  
-- 🕸️ **Welfare Footprint Graph (WFG)**  
-- 🗺️ **Processogram visual systems**  
-- 🐓 Species-level welfare analyses  
-- 🔬 Evidence classification & mapping tools  
+⸻
 
-Keeping these prompts scattered across private folders or embedded inside code increases the risk of:
+🗂 Folder Structure
 
-- outdated prompts  
-- conflicting versions  
-- unclear provenance  
-- confusion about which prompt belongs to which tool  
-- difficulty discussing improvements with non-coders  
-
-This repository solves all of that.
-
----
-
-# 🗂️ Repository Structure
-
-Prompts are organized by **tool** (product/module) rather than by AI function.  
-This keeps everything intuitive even as the ecosystem grows.
-
+Each WFF project has its own folder containing all prompts used by that tool.
 
 wff-ai-prompts/
-   SCANNER_APP/
-      detection/
-      refinement/
-      welfare_analysis/
-      ethical_swap/
-      fragments/
-      README.md
+│
+├── SCANNER_APP/
+│     analyze_user_material.md
+│     confirm_refine_items.md
+│     analyze_product.md
+│     analyze_focused_item.md
+│     suggest_ethical_swap.md
+│     fragments.md
+│     README.md
+│
+├── WELFAREDATA/
+│     README.md
+│     (future prompts)
+│
+├── HEDONIC_TRACK/
+│     README.md
+│     (future prompts)
+│
+├── PAIN_ATLAS/
+│     README.md
+│     (future prompts)
+│
+└── README.md   ← (this file)
 
-   WELFAREDATA/
-      species_queries/
-      system_visualization/
-      evidence_extraction/
-      README.md
+This structure keeps things simple, flat, and fast to navigate, especially for non-technical collaborators.
 
-   HEDONIC_TRACK/
-      analysis_prompts/
-      scoring/
-      narrative/
-      README.md
+⸻
 
-   PROCESSOGRAM/
-      step_extraction/
-      causal_graph_text/
-      rendering_instructions/
-      README.md
+🔍 How This Repo Relates to the Production System
+	•	The prompts here are the canonical human-editable versions.
+	•	In production (e.g., inside Lovable or Supabase Edge Functions), prompts are also embedded in code as runtime strings (due to serverless environment constraints).
+	•	After editing a prompt here, maintainers manually sync it with the production copy and bump the prompt version.
 
-   PAIN_ATLAS/
-      pain_level_classification/
-      metadata_prompts/
-      README.md
+The prompts here are therefore the source of truth for editing, even though the runtime uses embedded versions.
 
-   WFG/
-      schema_prompts/
-      provenance_prompts/
-      evidence_alignment/
-      README.md
+⸻
 
-   SHARED/
-      shared_templates/
-      style_guidelines/
-      glossary/
-      README.md
+💬 How to Contribute
 
-   GLOBAL_README.md
+Contributions are welcome from scientists, developers, and any interested members of the public.
 
-### Why this structure?
+Ways to contribute:
+	•	Propose improvements or corrections via GitHub Issues
+	•	Comment on clarity, evidence requirements, ethics boundaries, formatting, etc.
+	•	Submit Pull Requests for edits
 
-- Clear separation between prompts for each app/tool  
-- Easy for outside collaborators to find what they need  
-- Avoids “prompt soup” (a giant folder with mixed files)  
-- Encourages consistent design across tools  
-- Allows future tools to be added without restructuring  
+No coding experience is required—prompts are plain text.
 
----
+⸻
 
-# 🗣️ How non-technical contributors can participate
+🔐 Security Note
 
-You *do not* need programming experience.
+This repository contains no secrets, no API keys, and no backend code.
+It is fully safe to be public.
+All sensitive credentials remain inside private infrastructure.
 
-### 👉 Ways to contribute:
-
-### **1. Open an Issue**
-For:  
-- corrections  
-- misbehaving prompts  
-- scientific suggestions  
-- ethical-lens issues  
-- new feature ideas  
-
-### **2. Propose a Pull Request (simple edit)**
-GitHub allows editing a file directly in the browser.  
-It automatically generates a pull request for review.
-
-### **3. Join the Discussion Threads**
-Each folder contains a `README.md` explaining the prompt categories and includes discussion links.
-
-### **4. Comment on Version Changes**
-Each prompt has:
-- a clear version number  
-- a changelog entry  
-
-This makes debate easier and more structured.
-
----
-
-# 🔐 Security & Privacy
-
-This repository contains **no code**, **no API keys**, **no infrastructure**, and **no links to internal systems**.
-
-Only safe, public text-based AI prompts are stored here.
-
-This was confirmed by a full security audit.
-
----
-
-# 🔧 How prompts are used in software
-
-WFF tools load these prompts dynamically (or embedded after synchronizing), ensuring:
-
-- reproducibility  
-- auditing  
-- traceability  
-- full scientific transparency  
-
-Developers never modify prompts directly inside the app.  
-All changes flow through this repository.
-
----
-
-# 🧱 Versioning Principles
-
-Each prompt has:
-
-- `version: vX.Y`  
-- a section “What changed in this version”  
-- optional authorship notes  
-- optional scientific references  
-
-This allows reviewers to inspect changes over time.
-
----
-
-# 🤝 Contribution Guidelines
-
-1. Read the folder’s `README.md` before editing prompts.  
-2. Keep formatting consistent with the shared style guidelines.  
-3. Be concise, precise, and avoid ambiguous language.  
-4. If proposing structural changes, open an Issue first.  
-5. Always justify scientific changes with reasoning or references.  
-
----
-
-# 🧭 Roadmap (Optional)
-
-- Markdown linting for formatting consistency  
-- Prompt auto-validation (syntax + variable usage)  
-- Cross-tool shared glossary expansion  
-- Prompt provenance tracking via WFG schemas  
-
----
-
-# 🙏 Acknowledgements
-
-This project is part of the Welfare Footprint Framework, developed by  
-**Wladimir J. Alonso** & **Cynthia Schuck-Paim**, with contributions from  
-scientists, developers, designers, and collaborators worldwide.
-
----
-
-If you have suggestions or spot issues, please open an Issue or join the Discussions.
-
+⸻
    
